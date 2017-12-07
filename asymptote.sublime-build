@@ -1,4 +1,5 @@
 {
-    "cmd": ["asy","-f pdf -noV " "$file"],
+    "cmd": ["/home/dlefur/.config/sublime-text-3/Packages/User/./dlf-asypdf", "$file"],
+    "path": "/usr/bin",
     "selector": "text.asymptote"
 }

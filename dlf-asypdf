@@ -1,0 +1,37 @@
+#!/bin/sh
+# [Gedit Tool]
+# Comment=Compilation asy
+# Name=asy pdf
+# Shortcut=<Control>F4
+# Applicability=all
+# Output=output-panel
+# Input=nothing
+# Save-files=document
+
+
+#--------------------------------------------------------------------------
+#fonction de visualisation des images
+visualisation()
+{
+   evince "$1.pdf" &
+}
+#--------------------------------------------------------------------------
+
+#----------------------------------- fichier courant
+#nomfichier : nom du fichier courant
+nomfichier="$GEDIT_CURRENT_DOCUMENT_NAME"
+
+#base : nom du fichier sans extension
+base=${nomfichier%.*} 
+
+#ext : extension du fichier 
+ext=`echo $nomfichier |cut -f2 -d.`
+
+# test
+#-------------------------------------- si fichier asy, compilation
+if test $ext = "asy" ; then 
+   asy -f pdf -noV $nomfichier  && visualisation $base 
+else
+   echo "<Control>F4 nécessite un fichier asy !"
+fi
+
