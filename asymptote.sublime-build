@@ -1,0 +1,4 @@
+{
+    "cmd": ["asy","-f pdf -noV " "$file"],
+    "selector": "text.asymptote"
+}
